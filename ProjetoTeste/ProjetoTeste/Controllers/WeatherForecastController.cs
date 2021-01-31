@@ -35,5 +35,20 @@ namespace ProjetoTeste.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet]
+    [Route("Rotastempo")]
+
+        public IEnumerable<WeatherForecast> Get2()
+        {
+            var rng = new Random();
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = 20,
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            })
+            .ToArray();
+        }
     }
 }
